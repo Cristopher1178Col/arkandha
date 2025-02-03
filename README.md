@@ -48,7 +48,7 @@ Este proyecto es una aplicación web desarrollada con Django para la administrac
    source env/bin/activate
 3. **Instalar dependencias**
    ```bash
-   pip install "dependencia"  -------- las dependencias estan en el archivo requirements.txt de este repositorio
+   pip install -r requirements.txt  -------- las dependencias estan en el archivo requirements.txt de este repositorio
    pip list --- verificas que esten las dependencias instaladas.
 4. **Realizar migraciones de la base de datos**
     ```bash

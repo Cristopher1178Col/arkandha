@@ -60,11 +60,10 @@ Este proyecto es una aplicación web desarrollada con Django para la administrac
 
 ## Configuración
 - Revisa la configuración de DATABASES para conectar con PostgreSQL.
-- Configura STATICFILES_DIRS si necesitas manejar archivos estáticos personalizados.
 
 ## Uso
 **Home:**
-- Accede a http://localhost:8000/home/ para ver los moduos de predios y propietarios
+- Accede a http://localhost:8000/home/ para ver los modulos de predios y propietarios
 
 **Predios:**
 - Accede a http://localhost:8000/predios/ para ver la lista de predios, y desde allí podrás crear, editar o eliminar un predio.

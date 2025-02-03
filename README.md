@@ -9,9 +9,6 @@ Este proyecto es una aplicación web desarrollada con Django para la administrac
 - [Instalación](#instalación)
 - [Configuración](#configuración)
 - [Uso](#uso)
-- [Estructura del Proyecto](#estructura-del-proyecto)
-- [Contribuciones](#contribuciones)
-- [Licencia](#licencia)
 - [Contacto](#contacto)
 
 ## Características
@@ -36,12 +33,45 @@ Este proyecto es una aplicación web desarrollada con Django para la administrac
 
 - **Backend:** Python, Django
 - **Frontend:** HTML, CSS, Bootstrap
-- **Base de Datos:** SQLite (por defecto en Django; puede configurarse para otros motores)
+- **Base de Datos:** PostgreSQL
 
 ## Instalación
 
 1. **Clonar el repositorio:**
 
    ```bash
-   git clone https://github.com/tu_usuario/tu_repositorio.git
-   cd tu_repositorio
+   git clone https://github.com/Cristopher1178Col/arkandha.git
+   cd arkandha
+2. **Crear y activar el entorno virtual**
+   ```bash
+   python -m venv env
+   source env/bin/activate
+3. **Instalar dependencias**
+   ```bash
+   pip install "dependencia"  -------- las dependencias estan en el archivo requirements.txt de este repositorio
+   pip list --- verificas que esten las dependencias instaladas.
+4. **Realizar migraciones de la base de datos**
+    ```bash
+   python manage.py makemigrations
+   python manage.py migrate
+5. **Iniciar el servidor de desarrollo**
+   ```bash
+   python manage.py runserver
+
+## Configuración
+- Asegúrate de configurar el archivo settings.py según tus necesidades.
+- Revisa la configuración de DATABASES para conectar con PostgreSQL.
+- Configura STATICFILES_DIRS si necesitas manejar archivos estáticos personalizados.
+- En producción, recuerda ajustar DEBUG = False y configurar adecuadamente el servidor web.
+
+## Uso
+**Predios:**
+- Accede a http://localhost:8000/predios/ para ver la lista de predios, y desde allí podrás crear, editar o eliminar un predio.
+
+**Propietarios:**
+- Accede a http://localhost:8000/propietarios/ para ver la lista de propietarios, crear nuevos, editar o eliminar registros, y ver los predios asociados a cada propietario.
+
+## Contacto
+**Nombre: Cristopher Benavides**
+**Email: benavidesramirez316@gmail.com**
+**GitHub: Cristopher1178Col**

@@ -1,0 +1,36 @@
+<!-- Vista para ver los propietarios de un predio -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propietarios de {{ predio.nombre }}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="mb-4">Propietarios de {{ predio.nombre }}</h1>
+        <a href="{% url 'listar_predios' %}" class="btn btn-primary mb-3">Volver a la lista de Predios</a>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nombre del Propietario</th>
+                    <th>Numero de Identificacion</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for propietario in propietarios %}
+                <tr>
+                    <td>{{ propietario.nombre }}</td>
+                    <td>{{ propietario.numero_identificacion }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="2" class="text-center">No hay predios registrados para este propietario.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

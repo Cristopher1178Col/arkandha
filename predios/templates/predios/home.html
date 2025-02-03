@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Arkandha</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .home-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .card {
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .Arkandha {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="Arkandha">Arkandha</div> 
+    <div class="container home-container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Gestión de Predios</h5>
+                        <p class="card-text">Administrar y visualizar predios registrados.</p>
+                        <a href="{% url 'listar_predios' %}" class="btn btn-primary">Ir a Predios</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Gestión de Propietarios</h5>
+                        <p class="card-text">Administrar y visualizar propietarios registrados.</p>
+                        <a href="{% url 'listar_todos_propietarios' %}" class="btn btn-success">Ir a Propietarios</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

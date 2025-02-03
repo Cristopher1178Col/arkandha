@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Predios</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="mb-4">Lista de Predios</h1>
+        <div class="d-flex justify-content-between mb-3">
+        <a href="{% url 'home' %}" class="btn btn-secondary">Volver al Inicio</a>
+        <a href="{% url 'crear_predio' %}" class="btn btn-success">Crear Nuevo Predio</a>
+    </div>   
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Tipo</th>
+                    <th>Numero Catastral</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for predio in predios %}
+                <tr>
+                    <td>{{ predio.nombre }}</td>
+                    <td>{{ predio.tipo }}</td>
+                    <td>{{ predio.numero_catastral }}</td>
+                    <td>
+                        <a href="{% url 'editar_predio' predio.pk %}" class="btn btn-warning btn-sm">Editar</a>
+                        <form action="{% url 'eliminar_predio' predio.pk %}" method="POST" style="display:inline;" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este predio?');">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                        </form>                        
+                        <a href="{% url 'propietario_predio' predio.pk %}" class="btn btn-info btn-sm">Ver Propietarios</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

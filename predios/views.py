@@ -85,12 +85,12 @@ def editar_propietario(request, pk):
     
     return render(request, 'predios/editar_propietario.html', {'form': form, 'propietario': propietario})
 
-#Vista Home
+# Vista Home
 def home(request):
     predios = Predio.objects.all()
     return render(request, 'predios/home.html', {'predios': predios})
 
-#Vista para ver los predios de un propietario
+# Vista para ver los predios de un propietario
 def predios_propietario(request, pk):
     propietario = get_object_or_404(Propietario, pk=pk)
     predios = propietario.predio_set.all()  # 'predio_set' es el nombre automático que Django asigna
@@ -100,4 +100,4 @@ def predios_propietario(request, pk):
 def propietario_predio(request, pk):
     predio = get_object_or_404(Predio,pk=pk)
     propietarios= predio.propietarios.all()
-    return render(request, 'predios/propietario_predios.html', {'predios': predio, 'propietarios': propietarios})  # 'propietarios
+    return render(request, 'predios/propietario_predios.html', {'predio': predio, 'propietarios': propietarios})  # 'propietarios

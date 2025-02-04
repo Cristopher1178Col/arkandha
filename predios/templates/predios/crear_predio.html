@@ -1,40 +1,89 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crear Predio</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crear Predio</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="container mt-4">
-        <h1 class="mb-4">Crear Predio</h1>
-        <a href="{% url 'listar_predios' %}" class="btn btn-secondary mb-3">Volver a la lista de predios</a>
+  <div class="container mt-4">
+    <h1 class="mb-4">Crear Predio</h1>
+    <a href="{% url 'listar_predios' %}" class="btn btn-secondary mb-3">Volver a la lista de predios</a>
 
-        <form method="POST">
-            {% csrf_token %}
-            <div class="form-group">
-                <label for="id_nombre">Nombre</label>
-                {{ form.nombre }}
-            </div>
-            <div class="form-group">
-                <label for="id_tipo">Tipo</label>
-                {{ form.tipo }}
-            </div>
-            <div class="form-group">
-                <label for="id_numero_catastral">Número Catastral</label>
-                {{ form.numero_catastral }}
-            </div>
-            <div class="form-group">
-                <label for="id_numero_matricula">Número Matrícula</label>
-                {{ form.numero_matricula }}
-            </div>
-            <div class="form-group">
-                <label for="id_propietarios">Propietarios</label>
-                {{ form.propietarios }}
-            </div>
-            <button type="submit" class="btn btn-primary">Crear Predio</button>
-        </form>
-    </div>
+    <form method="POST">
+      {% csrf_token %}
+      
+      {% if form.non_field_errors %}
+      <div class="alert alert-danger">
+        {% for error in form.non_field_errors %}
+          <p>{{ error }}</p>
+        {% endfor %}
+      </div>
+      {% endif %}
+      
+      <div class="form-group">
+        <label for="id_nombre">Nombre</label>
+        {{ form.nombre }}
+        {% if form.nombre.errors %}
+          <div class="text-danger">
+            {% for error in form.nombre.errors %}
+              <small>{{ error }}</small>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+      
+      <div class="form-group">
+        <label for="id_tipo">Tipo</label>
+        {{ form.tipo }}
+        {% if form.tipo.errors %}
+          <div class="text-danger">
+            {% for error in form.tipo.errors %}
+              <small>{{ error }}</small>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+      
+      <div class="form-group">
+        <label for="id_numero_catastral">Número Catastral</label>
+        {{ form.numero_catastral }}
+        {% if form.numero_catastral.errors %}
+          <div class="text-danger">
+            {% for error in form.numero_catastral.errors %}
+              <small>{{ error }}</small>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+      
+      <div class="form-group">
+        <label for="id_numero_matricula">Número Matrícula</label>
+        {{ form.numero_matricula }}
+        {% if form.numero_matricula.errors %}
+          <div class="text-danger">
+            {% for error in form.numero_matricula.errors %}
+              <small>{{ error }}</small>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+      
+      <div class="form-group">
+        <label for="id_propietarios">Propietarios</label>
+        {{ form.propietarios }}
+        {% if form.propietarios.errors %}
+          <div class="text-danger">
+            {% for error in form.propietarios.errors %}
+              <small>{{ error }}</small>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+      
+      <button type="submit" class="btn btn-primary">Crear Predio</button>
+    </form>
+  </div>
 </body>
 </html>

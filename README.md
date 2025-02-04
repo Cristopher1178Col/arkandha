@@ -50,16 +50,48 @@ Este proyecto es una aplicación web desarrollada con Django para la administrac
    ```bash
    pip install -r requirements.txt  -------- las dependencias estan en el archivo requirements.txt de este repositorio
    pip list --- verificas que esten las dependencias instaladas.
-4. **Realizar migraciones de la base de datos**
-    ```bash
-   python manage.py makemigrations
-   python manage.py migrate
+4. **Configurar la aplicacion y la base de datos**
+    - [Configuración](#configuración)
 5. **Iniciar el servidor de desarrollo**
    ```bash
    python manage.py runserver
 
 ## Configuración
-- Revisa la configuración de DATABASES para conectar con PostgreSQL.
+1. **Crear la base de datos**
+     1. Abrir PostgreSQL en tu terminal o en tu herramienta de gestion
+     2. Ejecutar el siguiente comando para crear la base de datos
+        ```sql
+           CREATE DATABASE arkandha;
+  
+     3. Crear un usuario y asignar permisos:
+         ```sql
+           CREATE USER arkandha_user WITH PASSWORD 'Carepa.ant.*';
+           ALTER DATABASE arkandha OWNER TO arkandha_user;
+
+2. **Configurar conexion a Django**
+     1. Abrir el archivo `settings.py` en la carpeta arkadha
+     2. Buscar la seccion `DATABASES` y verificar que este la base de datos creada (arkandha)
+        Deberia aparecer asi:
+        ```py
+        DATABASES = {
+         'default': {
+           'ENGINE': 'django.db.backends.postgresql',
+           'NAME': 'arkandha',         # Nombre de la db que se creo en PostgreSQL
+           'USER': 'arkandha_user',    # Usuario de PostgreSQL
+           'PASSWORD': 'Carepa.ant.*',
+           'HOST': 'localhost',
+           'PORT': '5432',
+          }
+        }
+
+3. **Aplicar migraciones**
+     Ejecutar los siguientes comandos para aplicar las migraciones y asegurarte de que la base de datos esta lista
+     ```bash
+     python manage.py makemigrations
+     python manage.py migrate
+     ```
+     Si todo esta correcto deberias ver un prompt de la base de datos para recibir comandos
+  
 
 ## Uso
 **Home:**

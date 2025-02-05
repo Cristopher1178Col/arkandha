@@ -85,7 +85,7 @@ Este proyecto es una aplicación web desarrollada con Django para la administrac
         }
 
 3. **Aplicar migraciones**
-     Ejecutar los siguientes comandos para aplicar las migraciones y asegurarte de que la base de datos esta lista
+   1. Ejecutar los siguientes comandos para aplicar las migraciones y asegurarte de que la base de datos esta lista
      ```bash
      python manage.py makemigrations
      python manage.py migrate

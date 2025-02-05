@@ -48,7 +48,7 @@ Este proyecto es una aplicación web desarrollada con Django para la administrac
    source env/bin/activate
 3. **Instalar dependencias**
    ```bash
-   pip install -r requirements.txt  -------- las dependencias estan en el archivo requirements.txt de este repositorio
+   pip install -r requirements.txt 
    pip list --- verificas que esten las dependencias instaladas.
 4. **Configurar la aplicacion y la base de datos**
     - [Configuración](#configuración)
@@ -65,11 +65,11 @@ Este proyecto es una aplicación web desarrollada con Django para la administrac
   
      3. Crear un usuario y asignar permisos:
          ```sql
-           CREATE USER arkandha_user WITH PASSWORD 'Carepa.ant.*';
-           ALTER DATABASE arkandha OWNER TO arkandha_user;
+           CREATE USER 'tu_user' WITH PASSWORD 'tu_password'; ------ Debes crear tu usuario y contraseña entre comillas simples ('')
+           ALTER DATABASE arkandha OWNER TO 'user';
 
 2. **Configurar conexion a Django**
-     1. Abrir el archivo `settings.py` en la carpeta arkadha
+     1. Abrir el archivo `settings.py` en la carpeta arkandha
      2. Buscar la seccion `DATABASES` y verificar que este la base de datos creada (arkandha)
         Deberia aparecer asi:
         ```py
@@ -77,8 +77,8 @@ Este proyecto es una aplicación web desarrollada con Django para la administrac
          'default': {
            'ENGINE': 'django.db.backends.postgresql',
            'NAME': 'arkandha',         # Nombre de la db que se creo en PostgreSQL
-           'USER': 'arkandha_user',    # Usuario de PostgreSQL
-           'PASSWORD': 'Carepa.ant.*',
+           'USER': 'tu_user',    # Usuario de PostgreSQL
+           'PASSWORD': 'tu_password',
            'HOST': 'localhost',
            'PORT': '5432',
           }
@@ -90,7 +90,7 @@ Este proyecto es una aplicación web desarrollada con Django para la administrac
      python manage.py makemigrations
      python manage.py migrate
      ```
-     Si todo esta correcto deberias ver un prompt de la base de datos para recibir comandos
+     Si todo esta correcto deberia correr la aplicacion en tu servidor local 
   
 
 ## Uso

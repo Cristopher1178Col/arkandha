@@ -11,34 +11,76 @@
         <h1 class="mb-4">Editar Predio: {{ predio.nombre }}</h1>
         <a href="{% url 'listar_predios' %}" class="btn btn-secondary mb-3">Volver a la lista de predios</a>
         
-        <form method="post">
+        <form method="POST">
             {% csrf_token %}
             
-            <div class="form-group">
-                <label for="id_nombre">Nombre</label>
-                {{ form.nombre }}
+            {% if form.non_field_errors %}
+            <div class="alert alert-danger">
+              {% for error in form.non_field_errors %}
+                <p>{{ error }}</p>
+              {% endfor %}
             </div>
-
+            {% endif %}
+            
             <div class="form-group">
-                <label for="id_tipo">Tipo</label>
-                {{ form.tipo }}
+              <label for="id_nombre">Nombre</label>
+              {{ form.nombre }}
+              {% if form.nombre.errors %}
+                <div class="text-danger">
+                  {% for error in form.nombre.errors %}
+                    <small>{{ error }}</small>
+                  {% endfor %}
+                </div>
+              {% endif %}
             </div>
-
+            
             <div class="form-group">
-                <label for="id_numero_catastral">Número Catastral</label>
-                {{ form.numero_catastral }}
+              <label for="id_tipo">Tipo</label>
+              {{ form.tipo }}
+              {% if form.tipo.errors %}
+                <div class="text-danger">
+                  {% for error in form.tipo.errors %}
+                    <small>{{ error }}</small>
+                  {% endfor %}
+                </div>
+              {% endif %}
             </div>
-
+            
             <div class="form-group">
-                <label for="id_descripcion">Numero Matricula</label>
-                {{ form.numero_matricula }}
+              <label for="id_numero_catastral">Número Catastral</label>
+              {{ form.numero_catastral }}
+              {% if form.numero_catastral.errors %}
+                <div class="text-danger">
+                  {% for error in form.numero_catastral.errors %}
+                    <small>{{ error }}</small>
+                  {% endfor %}
+                </div>
+              {% endif %}
             </div>
-
+            
             <div class="form-group">
-                <label for="id_ubicacion">Propietarios</label>
-                {{ form.propietarios }}
+              <label for="id_numero_matricula">Número Matrícula</label>
+              {{ form.numero_matricula }}
+              {% if form.numero_matricula.errors %}
+                <div class="text-danger">
+                  {% for error in form.numero_matricula.errors %}
+                    <small>{{ error }}</small>
+                  {% endfor %}
+                </div>
+              {% endif %}
             </div>
-
+            
+            <div class="form-group">
+              <label for="id_propietarios">Propietarios</label>
+              {{ form.propietarios }}
+              {% if form.propietarios.errors %}
+                <div class="text-danger">
+                  {% for error in form.propietarios.errors %}
+                    <small>{{ error }}</small>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            </div>
         
 
             <button type="submit" class="btn btn-primary">Guardar Cambios</button>

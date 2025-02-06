@@ -16,7 +16,7 @@ class Propietario(models.Model):
     ]
 
     '''
-    models.Charsfield es para definir el campo de texto que ira a la base de dato.
+    models.Charsfield es para definir el campo de texto que ira a la base de datos.
     almacenara cadenas de texto de longitud limitada
     '''
 

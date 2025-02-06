@@ -8,4 +8,4 @@ class PredioAdmin(admin.ModelAdmin):
 admin.site.register(Predio, PredioAdmin)  # Se reigstra el modelo y su configuración aparecera en la barra
 
 
-admin.site.register(Propietario)  # Se reigstra el modelo y su configuración aparecera en la barra
+admin.site.register(Propietario)  # Se reigstra el modelo y su configuración aparecera en la barra5555555556005

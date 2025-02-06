@@ -11,28 +11,65 @@
         <h1 class="mb-4">Editar Propietario: {{ propietario.nombre }}</h1>
         <a href="{% url 'listar_todos_propietarios' %}" class="btn btn-secondary mb-3">Volver a la lista de propietarios</a>
         
-        <form method="post">
-            {% csrf_token %}
+    <form method="POST">
+        {% csrf_token %}
+        
+        <!-- Muestra errores generales del formulario -->
+        {% if form.non_field_errors %}
+        <div class="alert alert-danger">
+          {% for error in form.non_field_errors %}
+            <p>{{ error }}</p>
+          {% endfor %}
+        </div>
+        {% endif %}
             
-            <div class="form-group">
-                <label for="id_nombre">Nombre</label>
-                {{ form.nombre }}
-            </div>
-
-            <div class="form-group">
-                <label for="id_apellido">Tipo Persona</label>
-                {{ form.tipo_persona }}
-            </div>
-
-            <div class="form-group">
-                <label for="id_dni">Numero Identificacion</label>
-                {{ form.numero_identificacion }}
-            </div>
-
-            <div class="form-group">
-                <label for="id_telefono">Tipo dentificacion</label>
-                {{ form.tipo_identificacion }}
-            </div>
+        <div class="form-group">
+            <label for="id_nombre">Nombre</label>
+            {{ form.nombre }}
+            {% if form.nombre.errors %}
+              <div class="text-danger">
+                {% for error in form.nombre.errors %}
+                  <small>{{ error }}</small>
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+          
+          <div class="form-group">
+            <label for="id_tipo_persona">Tipo de Persona</label>
+            {{ form.tipo_persona }}
+            {% if form.tipo_persona.errors %}
+              <div class="text-danger">
+                {% for error in form.tipo_persona.errors %}
+                  <small>{{ error }}</small>
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+          
+          <div class="form-group">
+            <label for="id_numero_identificacion">Número de Identificación</label>
+            {{ form.numero_identificacion }}
+            {% if form.numero_identificacion.errors %}
+              <div class="text-danger">
+                {% for error in form.numero_identificacion.errors %}
+                  <small>{{ error }}</small>
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+          
+          <div class="form-group">
+            <label for="id_tipo_identificacion">Tipo de Identificación</label>
+            {{ form.tipo_identificacion }}
+            {% if form.tipo_identificacion.errors %}
+              <div class="text-danger">
+                {% for error in form.tipo_identificacion.errors %}
+                  <small>{{ error }}</small>
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
 
             <button type="submit" class="btn btn-primary">Guardar Cambios</button>
         </form>

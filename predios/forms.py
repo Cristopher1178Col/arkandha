@@ -15,30 +15,28 @@ class PredioForm(forms.ModelForm):
         }
     def clean_nombre(self):
         nombre = self.cleaned_data.get('nombre')
-        qs = Predio.objects.filter(nombre__iexact=nombre)
-        if self.instance.pk:
-           qs = qs.exclude(pk=self.instance.pk)
-        if qs.exists():
+        limpiar = Predio.objects.filter(nombre__iexact=nombre)
+        if self.instance.pk:    
+           limpiar = limpiar.exclude(pk=self.instance.pk)
+        if limpiar.exists():
            raise forms.ValidationError('El nombre del predio ya existe.')
         return nombre
 
-    
-
     def clean_numero_catastral(self):
         numero_catastral = self.cleaned_data.get('numero_catastral')
-        qs = Predio.objects.filter(numero_catastral=numero_catastral)
+        limpiar = Predio.objects.filter(numero_catastral=numero_catastral)
         if self.instance.pk:
-            qs = qs.exclude(pk=self.instance.pk)
-        if qs.exists():
+            limpiar = limpiar.exclude(pk=self.instance.pk)
+        if limpiar.exists():
             raise forms.ValidationError("Este número catastral ya está registrado.")
         return numero_catastral
 
     def clean_numero_matricula(self):
         numero_matricula = self.cleaned_data.get('numero_matricula')
-        qs = Predio.objects.filter(numero_matricula=numero_matricula)
+        limpiar = Predio.objects.filter(numero_matricula=numero_matricula)
         if self.instance.pk:
-            qs = qs.exclude(pk=self.instance.pk)
-        if qs.exists():
+            limpiar = limpiar.exclude(pk=self.instance.pk)
+        if limpiar.exists():
             raise forms.ValidationError("Este número de matrícula ya está registrado.")
         return numero_matricula
 
@@ -57,9 +55,9 @@ class PropietarioForm(forms.ModelForm):
     
     def clean_numero_identificacion(self):
         numero_identificacion = self.cleaned_data.get('numero_identificacion')
-        qs = Propietario.objects.filter(numero_identificacion=numero_identificacion)
+        limpiar = Propietario.objects.filter(numero_identificacion=numero_identificacion)
         if self.instance.pk:
-            qs = qs.exclude(pk=self.instance.pk)
-        if qs.exists():
+            limpiar = limpiar.exclude(pk=self.instance.pk)
+        if limpiar.exists():
             raise forms.ValidationError("Este número de identificación ya está registrado.")
         return numero_identificacion

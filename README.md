@@ -104,6 +104,9 @@ Este proyecto es una aplicación web desarrollada con Django para la administrac
 **Propietarios:**
 - Accede a http://localhost:8000/propietarios/ para ver la lista de propietarios, crear nuevos, editar o eliminar registros, y ver los predios asociados a cada propietario.
 
+# Extraccion de archivos de notacion (JSON)
+- Este módulo adicional permite extraer los códigos de especificación de las anotaciones contenidas en los archivos JSON del folio de matrícula inmobiliaria. Estos códigos son números de 3 a 5 dígitos que aparecen justo después de la cadena "ESPECIFICACION:" en el atributo "textoAnotaciones" de cada predio.
+
 ## Contacto
 - **Nombre: Cristopher Benavides**
 - **Email: benavidesramirez316@gmail.com**

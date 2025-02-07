@@ -9,6 +9,7 @@ Este proyecto es una aplicación web desarrollada con Django para la administrac
 - [Instalación](#instalación)
 - [Configuración](#configuración)
 - [Uso](#uso)
+- [Extraccion de archivos de notacion (JSON)](extraccion-de-archivos-de-notacion-json).
 - [Contacto](#contacto)
 
 ## Características

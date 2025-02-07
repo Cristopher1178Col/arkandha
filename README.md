@@ -106,6 +106,13 @@ Este proyecto es una aplicación web desarrollada con Django para la administrac
 
 # Extraccion de archivos de notacion (JSON)
 - Este módulo adicional permite extraer los códigos de especificación de las anotaciones contenidas en los archivos JSON del folio de matrícula inmobiliaria. Estos códigos son números de 3 a 5 dígitos que aparecen justo después de la cadena "ESPECIFICACION:" en el atributo "textoAnotaciones" de cada predio.
+  
+  - **Pasos para usar este modulo**
+    1. Abrir la consola de Python en tu editor de codigo o en la terminal que tengas, recuerda que debes tener activo tu entorno virtual.
+    2. Ejecutar el comando de extraccion
+       ```bash
+          python manage.py procesar_json
+    - El comando recorrerá todos los archivos JSON en la carpeta data/ y mostrará en la terminal, para cada predio, el nombre y los códigos de especificación extraídos.
 
 ## Contacto
 - **Nombre: Cristopher Benavides**
